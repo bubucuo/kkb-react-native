@@ -8,6 +8,7 @@ import {
   // LearnMoreLinks,
   // ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+// import Bottom from './components/Bottom';
 import Home from './pages/Home/index';
 
 export default function App(props) {
@@ -20,6 +21,7 @@ export default function App(props) {
   return (
     <SafeAreaView style={{backgroundStyle}}>
       <Home />
+      {/* <Bottom /> */}
     </SafeAreaView>
   );
 }

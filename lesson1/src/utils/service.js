@@ -2,7 +2,7 @@ export let popularMovie = [
   {
     id: 0,
     src:
-      'https://p1.meituan.net/170.230/movie/6876f0a4db61cab652fdc3d3ed14e94c4924473.jpg',
+      'https://p0.meituan.net/170.230/movie/6876f0a4db61cab652fdc3d3ed14e94c4924473.jpg',
     name: '中国医生',
     score: 9.9,
   },
@@ -11,7 +11,7 @@ export let popularMovie = [
     id: 1,
 
     src:
-      'https://p1.meituan.net/170.230/movie/63cb3dbbaff624b236b2e22b2ee59cff1553093.jpg',
+      'https://p0.meituan.net/170.230/movie/63cb3dbbaff624b236b2e22b2ee59cff1553093.jpg',
     name: '1921',
     score: 9.9,
   },
@@ -38,7 +38,7 @@ export let popularMovie = [
     score: 9.0,
   },
 ];
-popularMovie = popularMovie.concat(popularMovie);
+// popularMovie = popularMovie.concat(popularMovie);
 
 export const movieOnInfoList = {
   chiefBonus: {},
@@ -146,7 +146,7 @@ export const movieOnInfoList = {
       id: 1337700,
       haspromotionTag: false,
       img:
-        'http://p1.meituan.net/w.h/movie/6876f0a4db61cab652fdc3d3ed14e94c4924473.jpg',
+        'https://p0.meituan.net/movie/6876f0a4db61cab652fdc3d3ed14e94c4924473.jpg',
       version: 'v2d imax',
       nm: '中国医生',
       preShow: false,
@@ -163,7 +163,7 @@ export const movieOnInfoList = {
       id: 1371295,
       haspromotionTag: false,
       img:
-        'http://p1.meituan.net/w.h/movie/4084309e064f44cbd478b93a0695d7af2648089.jpg',
+        'https://p0.meituan.net/movie/4084309e064f44cbd478b93a0695d7af2648089.jpg',
       version: '',
       nm: '燃野少年的天空',
       preShow: false,
@@ -180,7 +180,7 @@ export const movieOnInfoList = {
       id: 1336183,
       haspromotionTag: false,
       img:
-        'http://p1.meituan.net/w.h/movie/63cb3dbbaff624b236b2e22b2ee59cff1553093.jpg',
+        'https://p0.meituan.net/movie/63cb3dbbaff624b236b2e22b2ee59cff1553093.jpg',
       version: 'v2d imax',
       nm: '1921',
       preShow: false,
@@ -197,7 +197,7 @@ export const movieOnInfoList = {
       id: 1303100,
       haspromotionTag: false,
       img:
-        'http://p0.meituan.net/w.h/movie/df89b11a57dd63760a6c3d544c61e4a83956828.jpg',
+        'https://p0.meituan.net/movie/63cb3dbbaff624b236b2e22b2ee59cff1553093.jpg',
       version: '',
       nm: '新大头儿子和小头爸爸4：完美爸爸',
       preShow: false,
@@ -214,7 +214,7 @@ export const movieOnInfoList = {
       id: 1298542,
       haspromotionTag: false,
       img:
-        'http://p0.meituan.net/w.h/movie/cba20984e8e4423598913077e515b6121686728.jpg',
+        'https://p0.meituan.net/movie/cba20984e8e4423598913077e515b6121686728.jpg',
       version: 'v3d imax',
       nm: '白蛇2：青蛇劫起',
       preShow: false,
@@ -231,7 +231,7 @@ export const movieOnInfoList = {
       id: 1319075,
       haspromotionTag: false,
       img:
-        'http://p0.meituan.net/w.h/movie/2b709fe7f7c2c9b21c6d37b79e41eb5f1849773.jpg',
+        'https://p0.meituan.net/movie/2b709fe7f7c2c9b21c6d37b79e41eb5f1849773.jpg',
       version: '',
       nm: '守岛人',
       preShow: false,
@@ -248,7 +248,7 @@ export const movieOnInfoList = {
       id: 1250950,
       haspromotionTag: false,
       img:
-        'http://p0.meituan.net/w.h/movie/72c7a8e55d97a8502c64495399fc3fb12010824.jpg',
+        'https://p0.meituan.net/movie/72c7a8e55d97a8502c64495399fc3fb12010824.jpg',
       version: 'v3d',
       nm: '俑之城',
       preShow: false,
@@ -265,7 +265,7 @@ export const movieOnInfoList = {
       id: 1298349,
       haspromotionTag: false,
       img:
-        'http://p0.meituan.net/w.h/movie/70ed5d23afc45de7749dfafa2a8a1bd23977288.jpg',
+        'https://p0.meituan.net/movie/70ed5d23afc45de7749dfafa2a8a1bd23977288.jpg',
       version: 'v3d',
       nm: '贝肯熊2：金牌特工',
       preShow: false,
@@ -282,7 +282,7 @@ export const movieOnInfoList = {
       id: 1432307,
       haspromotionTag: false,
       img:
-        'http://p1.meituan.net/w.h/movie/846bea292e5ea3985a4b53ea126284702880046.jpg',
+        'https://p0.meituan.net/movie/846bea292e5ea3985a4b53ea126284702880046.jpg',
       version: 'v3d',
       nm: '济公之降龙降世',
       preShow: false,
@@ -299,7 +299,7 @@ export const movieOnInfoList = {
       id: 1284955,
       haspromotionTag: false,
       img:
-        'http://p0.meituan.net/w.h/movie/fe8c8ba3235af68b2dd3ec680547f9523605641.jpg',
+        'https://p0.meituan.net/movie/fe8c8ba3235af68b2dd3ec680547f9523605641.jpg',
       version: '',
       nm: '二哥来了怎么办',
       preShow: false,
@@ -316,7 +316,7 @@ export const movieOnInfoList = {
       id: 1430577,
       haspromotionTag: false,
       img:
-        'http://p0.meituan.net/w.h/movie/bc71b11a44bc645615d0a7278859250b412392.jpg',
+        'https://p0.meituan.net/movie/bc71b11a44bc645615d0a7278859250b412392.jpg',
       version: '',
       nm: '大学',
       preShow: false,
@@ -333,7 +333,7 @@ export const movieOnInfoList = {
       id: 1378057,
       haspromotionTag: false,
       img:
-        'http://p0.meituan.net/w.h/movie/57917609b106b561b5dba984a0f376035045141.jpg',
+        'https://p0.meituan.net/movie/57917609b106b561b5dba984a0f376035045141.jpg',
       version: 'v2d imax',
       nm: '革命者',
       preShow: false,
