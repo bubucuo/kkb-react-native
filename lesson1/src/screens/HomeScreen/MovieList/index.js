@@ -2,13 +2,17 @@ import React, {useEffect, useState} from 'react';
 import {
   StyleSheet,
   FlatList,
+  // SectionList,
+  ScrollView,
   Text,
   View,
   Image,
   ActivityIndicator,
   Button,
+  Alert,
 } from 'react-native';
-import {movieOnInfoList} from '../../../utils/service';
+import {movieOnInfoList} from '@/utils/service';
+import {useNavigation} from '@react-navigation/core';
 
 const MovieList = () => {
   return (
@@ -16,7 +20,14 @@ const MovieList = () => {
       style={styles.list}
       data={movieOnInfoList.movieList}
       renderItem={({item}) => <Movie {...item} />}
+      keyExtractor={item => item.id}
     />
+
+    // <ScrollView>
+    //   {movieOnInfoList.movieList.map(({item}) => (
+    //     <Movie {...item} />
+    //   ))}
+    // </ScrollView>
   );
 };
 
@@ -43,12 +54,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#f03d37',
     borderRadius: 8,
   },
-  buyBtn: {
-    // width: 192,
-  },
 });
 
 const Movie = movie => {
+  const navigation = useNavigation();
   return (
     <View style={styles.box}>
       <Image
@@ -68,7 +77,14 @@ const Movie = movie => {
         <Text style={styles.txt}>{movie.showInfo}</Text>
       </View>
       <View style={styles.buy}>
-        <Button title="购票" color="white" buttonStyle={styles.buyBtn}></Button>
+        <Button
+          title="购票"
+          accessibilityLabel="购票"
+          color={Platform.OS === 'ios' ? 'white' : '#f03d37'}
+          onPress={() => {
+            navigation.navigate('cinema', {...movie});
+          }}
+        />
       </View>
     </View>
   );

@@ -32,7 +32,7 @@ function Img({src, score, name}) {
 const styles = StyleSheet.create({
   title: {padding: 8, fontSize: 14},
   box: {padding: 4},
-  imgBox: {position: 'relative', paddingBottom: 4},
+  imgBox: {position: 'relative'},
   img: {
     zIndex: 0,
     width: 85,
@@ -45,6 +45,8 @@ const styles = StyleSheet.create({
     right: 4,
     bottom: 24,
     left: 4,
+    height: 24,
+    lineHeight: 24,
     textAlign: 'center',
     fontSize: 12,
     fontWeight: 'bold',

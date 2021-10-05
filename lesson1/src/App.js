@@ -1,15 +1,49 @@
-import React, {useState, useEffect} from 'react';
-
-import {StyleSheet, useColorScheme, SafeAreaView, View} from 'react-native';
-
+import React from 'react';
+import {
+  StyleSheet,
+  useColorScheme,
+  SafeAreaView,
+  View,
+  Text,
+  Image,
+} from 'react-native';
 import {
   Colors,
   // Header,
   // LearnMoreLinks,
   // ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-// import Bottom from './components/Bottom';
-import Home from './pages/Home/index';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Bottom from './components/Bottom';
+import HomeScreen from './screens/HomeScreen/index';
+import UserScreen from './screens/UserScreen/index';
+import CinemaScreen from './screens/CinemaScreen';
+import WebScreen from './screens/WebScreen';
+
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+const stackMainStyle = {
+  headerStyle: {
+    backgroundColor: '#f4511e',
+  },
+  headerTintColor: '#fff',
+  headerTitleStyle: {
+    fontWeight: 'bold',
+  },
+};
+
+const stackSecStyle = {
+  headerStyle: {
+    backgroundColor: '#fff',
+  },
+  headerTintColor: '#000',
+  headerTitleStyle: {
+    fontWeight: 'bold',
+  },
+};
 
 export default function App(props) {
   const isDarkMode = useColorScheme() === 'dark';
@@ -19,22 +53,68 @@ export default function App(props) {
   };
 
   return (
-    <SafeAreaView style={{backgroundStyle}}>
-      <Home />
-      {/* <Bottom /> */}
-    </SafeAreaView>
+    <NavigationContainer>
+      {/* <SafeAreaView style={{backgroundStyle}}> */}
+      <Stack.Navigator>
+        <Stack.Screen
+          name="home"
+          component={HomeScreen}
+          options={{
+            title: '猫眼电影',
+            ...stackMainStyle,
+          }}
+        />
+
+        <Stack.Group screenOptions={{...stackSecStyle}}>
+          <Stack.Screen
+            name="user"
+            component={UserScreen}
+            options={{title: '用户中心'}}
+          />
+          <Stack.Screen
+            name="cinema"
+            component={CinemaScreen}
+            options={{title: '上映影院和购票'}}
+          />
+          <Stack.Screen
+            name="webview"
+            component={WebScreen}
+            options={{
+              headerTitle: () => (
+                <Text
+                  style={{
+                    backgroundColor: '#fff',
+                    color: '#000',
+                    fontWeight: 'bold',
+                  }}>
+                  学习RN中...
+                </Text>
+              ),
+            }}
+          />
+        </Stack.Group>
+      </Stack.Navigator>
+      {/* </SafeAreaView> */}
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  border: {
-    margin: 10,
-    padding: 10,
-    borderColor: 'red',
-    borderWidth: 1,
-    borderStyle: 'solid',
-  },
-});
+const styles = StyleSheet.create({rn: {width: 40, height: 40}});
+
+// export const RootNavigator = StackNavigator({
+//   HomeScreen: {
+//     screen: HomeScreen,
+//     navigationOptions: {
+//       headerTitle: '首页',
+//     },
+//   },
+//   UserScreen: {
+//     screen: UserScreen,
+//     navigationOptions: {
+//       headerTitle: '个人中心',
+//     },
+//   },
+// });
 
 // import React from 'react';
 // import type {Node} from 'react';
