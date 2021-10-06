@@ -17,7 +17,7 @@ const Cinema = ({addr, price}) => {
     <TouchableHighlight
       activeOpacity={0.6}
       underlayColor="#DDDDDD"
-      onPress={() => navigation.navigate('user')}>
+      onPress={() => navigation.navigate('cinema')}>
       <View style={styles.main}>
         <Text numberOfLines={1}>{addr}</Text>
         <Text style={styles.priceBox}>

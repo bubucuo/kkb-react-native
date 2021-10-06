@@ -2,11 +2,13 @@ import React from 'react';
 import {Text} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import UserScreen from '@/screens/UserScreen/index';
-import CinemaScreen from '@/screens/CinemaScreen';
+import CinemaListScreen from '@/screens/CinemaListScreen';
 import WebScreen from '@/screens/WebScreen';
 import TabNavigator from './TabNavigator';
 import IndexScreen from '@/screens/IndexScreen';
 import MovieScreen from '../screens/MovieScreen';
+import AboutMovieListScreen from '@/screens/AboutMovieListScreen';
+import CinemaScreen from '@/screens/CinemaScreen';
 
 const {Navigator, Screen, Group} = createNativeStackNavigator();
 
@@ -58,10 +60,21 @@ export default function MainStackNavigator(props) {
           options={{title: '用户中心'}}
         />
         <Screen
-          name="cinema"
-          component={CinemaScreen}
+          name="cinemaList"
+          component={CinemaListScreen}
           options={{title: '上映影院和购票'}}
         />
+        <Screen
+          name="cinema"
+          component={CinemaScreen}
+          options={{title: '影院'}}
+        />
+        <Screen
+          name="aboutMovieList"
+          component={AboutMovieListScreen}
+          options={{title: '热映'}}
+        />
+
         <Screen
           name="webview"
           component={WebScreen}

@@ -11,9 +11,9 @@ import {
 } from 'react-native';
 import {movieOnInfoList} from '@/utils/service';
 import {useNavigation} from '@react-navigation/core';
-import CustomButton from '../../../components/CustomButton';
+import CustomButton from '@/components/CustomButton';
 
-const MovieList = () => {
+const AboutMovieListScreen = () => {
   return (
     <FlatList
       style={styles.list}
@@ -21,16 +21,10 @@ const MovieList = () => {
       renderItem={({item}) => <Movie {...item} />}
       keyExtractor={item => item.id}
     />
-
-    // <ScrollView>
-    //   {movieOnInfoList.movieList.map(item => (
-    //     <Movie {...item} key={item.id} />
-    //   ))}
-    // </ScrollView>
   );
 };
 
-export default MovieList;
+export default AboutMovieListScreen;
 
 const styles = StyleSheet.create({
   list: {padding: 4},
@@ -80,7 +74,7 @@ export const Movie = movie => {
           title="购票"
           accessibilityLabel="购票"
           onPress={() => {
-            navigation.navigate('cinema', {...movie});
+            navigation.navigate('cinemaList', {...movie});
           }}
         />
       </View>
