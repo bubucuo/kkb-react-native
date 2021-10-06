@@ -1,11 +1,13 @@
 import React from 'react';
 import {StyleSheet, Image, ScrollView, Text, View} from 'react-native';
-import {popularMovie} from '../../../utils/service';
+import {popularMovie} from '@/utils/service';
+import CustomButton from '../../../components/CustomButton';
+import {useNavigation} from '@react-navigation/core';
 
 const Popular = () => {
   return (
     <View>
-      <Text style={styles.title}>最受好评电影</Text>
+      <Text style={styles.title}>正在热映</Text>
       <ScrollView horizontal={true} style={styles.box}>
         {popularMovie.map(item => (
           <Img key={item.id} {...item} />
@@ -17,14 +19,20 @@ const Popular = () => {
 
 export default Popular;
 
-function Img({src, score, name}) {
+function Img(movie) {
+  const {img, sc, nm} = movie;
+  const navigation = useNavigation();
   return (
     <View style={styles.imgBox}>
-      <Image source={{uri: src}} style={styles.img} />
-      <Text style={styles.score}>观众评分: {score}</Text>
-      <Text numberOfLines={1} style={styles.name}>
-        {name}
+      <Image source={{uri: img}} style={styles.img} />
+      <Text style={styles.sc}>观众评分: {sc}</Text>
+      <Text numberOfLines={1} style={styles.nm}>
+        {nm}
       </Text>
+      <CustomButton
+        title="购票"
+        onPress={() => navigation.navigate('cinema', {...movie})}
+      />
     </View>
   );
 }
@@ -39,7 +47,7 @@ const styles = StyleSheet.create({
     height: 115,
     margin: 4,
   },
-  score: {
+  sc: {
     zIndex: 1,
     position: 'absolute',
     right: 4,
@@ -53,7 +61,7 @@ const styles = StyleSheet.create({
     color: 'orange',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
-  name: {
+  nm: {
     maxWidth: 85,
     marginTop: 2,
     textAlign: 'center',

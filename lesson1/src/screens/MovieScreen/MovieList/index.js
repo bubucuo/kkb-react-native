@@ -8,11 +8,10 @@ import {
   View,
   Image,
   ActivityIndicator,
-  Button,
-  Alert,
 } from 'react-native';
 import {movieOnInfoList} from '@/utils/service';
 import {useNavigation} from '@react-navigation/core';
+import CustomButton from '../../../components/CustomButton';
 
 const MovieList = () => {
   return (
@@ -24,8 +23,8 @@ const MovieList = () => {
     />
 
     // <ScrollView>
-    //   {movieOnInfoList.movieList.map(({item}) => (
-    //     <Movie {...item} />
+    //   {movieOnInfoList.movieList.map(item => (
+    //     <Movie {...item} key={item.id} />
     //   ))}
     // </ScrollView>
   );
@@ -46,7 +45,7 @@ const styles = StyleSheet.create({
   },
   nm: {width: 200, marginBottom: 4, fontSize: 16, fontWeight: 'bold'},
   txt: {lineHeight: 20, fontSize: 13, color: '#666'},
-  score: {color: 'orange', fontSize: 18, fontWeight: 'bold'},
+  sc: {color: 'orange', fontSize: 18, fontWeight: 'bold'},
   buy: {
     position: 'absolute',
     top: 20,
@@ -56,7 +55,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Movie = movie => {
+export const Movie = movie => {
   const navigation = useNavigation();
   return (
     <View style={styles.box}>
@@ -71,16 +70,15 @@ const Movie = movie => {
           {movie.nm}
         </Text>
         <Text style={styles.txt}>
-          观众评 <Text style={styles.score}>{movie.sc}</Text>
+          观众评 <Text style={styles.sc}>{movie.sc}</Text>
         </Text>
         <Text style={styles.txt}>主演: {movie.star}</Text>
         <Text style={styles.txt}>{movie.showInfo}</Text>
       </View>
       <View style={styles.buy}>
-        <Button
+        <CustomButton
           title="购票"
           accessibilityLabel="购票"
-          color={Platform.OS === 'ios' ? 'white' : '#f03d37'}
           onPress={() => {
             navigation.navigate('cinema', {...movie});
           }}

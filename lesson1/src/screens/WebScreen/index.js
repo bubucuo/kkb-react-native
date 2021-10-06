@@ -1,13 +1,14 @@
 import React from 'react';
-import {View, Text} from 'react-native';
 import {WebView} from 'react-native-webview';
 
-export default function WebScreen() {
+export default function WebScreen({route}) {
   // return <WebView source={{uri: 'https://reactnative.dev/'}} />;
+  const {uri = 'https://main.m.taobao.com'} = route.params;
+
   return (
     <WebView
       source={{
-        uri: 'https://main.m.taobao.com',
+        uri,
       }}
     />
   );

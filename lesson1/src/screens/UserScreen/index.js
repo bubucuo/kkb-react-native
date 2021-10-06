@@ -1,36 +1,33 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, TextInput, View, Button} from 'react-native';
+import {StyleSheet, Text, TextInput, View} from 'react-native';
+import {useSelector, useDispatch} from 'react-redux';
+import CustomButton from '@/components/CustomButton';
+import {LOGOUT_SUCCESS} from '@/store/const';
 
-const User = () => {
-  const isLogin = undefined;
+const UserScreen = () => {
+  const userInfo = useSelector(({user}) => user.userInfo);
+  const dispatch = useDispatch();
+  const {id, name, score} = userInfo;
 
-  const [name, setname] = useState('');
-  const [pass, setpass] = useState('');
   return (
-    <View>
-      <TextInput
-        placeholder="user"
-        value={name}
-        placeholder="用户名"
-        onChangeText={text => setname(text)}
-      />
-      <TextInput
-        textContentType="password"
-        placeholder="password"
-        value={pass}
-        placeholder="密码"
-        onChangeText={text => setpass(text)}
-      />
-      <Button
-        title="登录"
-        accessibilityLabel="购票"
-        color={Platform.OS === 'ios' ? 'white' : '#f03d37'}
-        onPress={() => {}}
+    <View style={styles.main}>
+      <Text style={styles.txt}>id: {id}</Text>
+      <Text style={styles.txt}>name: {name}</Text>
+      <Text style={styles.txt}>score: {score}</Text>
+      <CustomButton
+        title="退出登录"
+        onPress={() => dispatch({type: LOGOUT_SUCCESS})}
       />
     </View>
   );
 };
 
-export default User;
+export default UserScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  main: {backgroundColor: '#fff', padding: 12},
+  txt: {
+    lineHeight: 32,
+    fontSize: 20,
+  },
+});

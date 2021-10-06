@@ -1,7 +1,8 @@
-import React from 'react';
-import {StyleSheet, Text, TextInput, View} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, View, Text, TextInput} from 'react-native';
 
-const TopBar = ({text, setText}) => {
+export default function Header() {
+  const [text, setText] = useState('');
   return (
     <View>
       <TextInput
@@ -12,9 +13,7 @@ const TopBar = ({text, setText}) => {
       />
     </View>
   );
-};
-
-export default TopBar;
+}
 
 const styles = StyleSheet.create({
   input: {
