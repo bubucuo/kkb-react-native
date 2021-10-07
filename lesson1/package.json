@@ -15,6 +15,7 @@
     "@react-navigation/native-stack": "^6.2.2",
     "react": "17.0.1",
     "react-native": "0.64.2",
+    "react-native-amap3d": "^2.0.4",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.8.0",
     "react-native-webview": "^11.14.0",
