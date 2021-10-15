@@ -9,7 +9,7 @@ export default function HomeStackScreen() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen
-        name="home"
+        name="home1"
         component={HomeScreen}
         options={{title: '首页'}}
       />
