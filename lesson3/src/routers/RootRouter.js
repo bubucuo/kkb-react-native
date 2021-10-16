@@ -8,10 +8,16 @@ import UserScreen from '@/screens/UserScreen';
 import SettingScreen from '@/screens/SettingScreen';
 import {useSelector} from 'react-redux';
 import LoginScreen from '@/screens/LoginScreen';
-import HomeStackScreen from './HomeStackScreen';
+import HomeRouterScreen from './HomeRouterScreen';
+import createMyTabNavigator from '../components/createMyTabNavigator';
+import MovieScreen from '@/screens/MovieScreen';
+import CinemaScreen from '@/screens/CinemaScreen';
+import VIPScreen from '@/screens/VIPScreen';
 
-// const {Navigator, Screen, Group} = createNativeStackNavigator();
-const {Navigator, Screen, Group} = createBottomTabNavigator();
+const {Navigator, Screen, Group} = createNativeStackNavigator();
+// const {Navigator, Screen, Group} = createBottomTabNavigator();
+
+// const {Navigator, Screen, Group} = createMyTabNavigator();
 
 export default function RootRouter() {
   const user = useSelector(({user}) => user);
@@ -28,29 +34,28 @@ export default function RootRouter() {
       {isLogin ? (
         <Group>
           <Screen
-            name="home"
-            // component={HomeScreen}
-            component={HomeStackScreen}
+            name="home0"
+            component={HomeRouterScreen}
             options={{headerShown: false}}
           />
           <Screen
-            name="user"
-            component={UserScreen}
-            options={{title: '用户中心'}}
+            name="movie"
+            component={MovieScreen}
+            options={{title: '电影'}}
           />
           <Screen
-            name="setting"
-            component={SettingScreen}
-            options={{title: '设置'}}
+            name="cinema"
+            component={CinemaScreen}
+            options={{title: '影院'}}
+          />
+          <Screen
+            name="vip"
+            component={VIPScreen}
+            options={{title: '大会员'}}
           />
         </Group>
       ) : (
         <Group>
-          <Screen
-            name="home"
-            component={HomeScreen}
-            options={{title: '首页'}}
-          />
           <Screen
             name="login"
             component={LoginScreen}

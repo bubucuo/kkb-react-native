@@ -2,11 +2,10 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import Section from '@/components/Section';
 
-// export default function SettingScreen({navigation}) {
-export default function SettingScreen() {
+export default function VIPScreen() {
   return (
     <View>
-      <Section>SettingScreen</Section>
+      <Section>VIPScreen</Section>
     </View>
   );
 }

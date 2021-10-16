@@ -5,6 +5,7 @@ import {Link} from '@react-navigation/native';
 import {useRoute} from '@react-navigation/native';
 import {Button} from 'react-native-elements';
 import {useDispatch, useSelector} from 'react-redux';
+import {logout} from '../../action/user';
 
 // export default function UserScreen({navigation, route}) {
 export default function UserScreen({navigation}) {
@@ -16,23 +17,21 @@ export default function UserScreen({navigation}) {
   return (
     <View>
       <Section>UserScreen</Section>
-      {/* <Section>用户名: {route.params.username}</Section> */}
-      <Link to={{screen: 'setting'}}>go setting</Link>
-      <Button
-        title="go setting"
-        buttonStyle={{marginVertical: 20}}
-        onPress={() => navigation.navigate('setting')}
-      />
-      <Button
-        title="修改用户名"
-        buttonStyle={{marginVertical: 20}}
-        onPress={() => navigation.setParams({username: '小白'})}
-      />
+
+      <Link to={{screen: 'vip'}}>vip</Link>
+
+      <Text style={{margin: 10}}>id:{userInfo.id}</Text>
+      <Text style={{margin: 10}}>name:{userInfo.name}</Text>
+      <Text style={{margin: 10}}>score:{userInfo.score}</Text>
+
       {isLogin ? (
         <Button
           title={userInfo.name + 'logout'}
           buttonStyle={{marginVertical: 20}}
-          onPress={() => dispatch({type: 'LOGOUT_SUCCESS'})}
+          onPress={() => {
+            dispatch(logout());
+            // dispatch({type: 'LOGOUT_SUCCESS'});
+          }}
         />
       ) : (
         <Button
