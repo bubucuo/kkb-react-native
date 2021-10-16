@@ -4,9 +4,11 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '@/screens/HomeScreen';
 import UserScreen from '@/screens/UserScreen';
 import SettingScreen from '@/screens/SettingScreen';
+// import createMyNavigator from '../components/createMyNavigator';
 
-// const HomeStack = createNativeStackNavigator();
 const {Navigator, Screen, Group} = createBottomTabNavigator();
+
+// const {Navigator, Screen, Group} = createMyNavigator();
 
 export default function HomeRouterScreen() {
   return (

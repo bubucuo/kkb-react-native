@@ -4,7 +4,7 @@ import Section from '@/components/Section';
 import {Link} from '@react-navigation/native';
 import {Button} from 'react-native-elements';
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
   return (
     <View>
       <Section>HomeScreen</Section>

@@ -1,11 +1,14 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import Section from '@/components/Section';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {Link} from '@react-navigation/native';
 
 export default function MovieScreen() {
   return (
-    <View>
+    <SafeAreaView>
       <Section>MovieScreen</Section>
-    </View>
+      <Link to={{screen: 'cinema'}}>购票</Link>
+    </SafeAreaView>
   );
 }
