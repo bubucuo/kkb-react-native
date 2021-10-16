@@ -10,6 +10,23 @@ export default function SettingScreen() {
   return (
     <View>
       <Section>SettingScreen</Section>
+      <Button
+        title="go home"
+        buttonStyle={{marginVertical: 20}}
+        onPress={() => {
+          // ! 三种返回首页的方式，注意区分
+          // navigation.push('home');
+          // navigation.navigate('home');
+          navigation.popToTop();
+        }}
+      />
+
+      <Button
+        title="back 去修改用户中心的用户名"
+        onPress={() => {
+          navigation.navigate('user', {username: '小花'});
+        }}
+      />
     </View>
   );
 }

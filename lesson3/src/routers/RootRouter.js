@@ -4,18 +4,14 @@ import Section from '@/components/Section';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
+import UserScreen from '@/screens/UserScreen';
+import SettingScreen from '@/screens/SettingScreen';
 import {useSelector} from 'react-redux';
 import LoginScreen from '@/screens/LoginScreen';
-import HomeRouterScreen from './HomeRouterScreen';
-import MovieScreen from '@/screens/MovieScreen';
-import CinemaScreen from '../screens/CinemaScreen';
-import VIPScreen from '../screens/VIPScreen';
-import createMyNavigator from '../components/createMyNavigator';
+import HomeStackScreen from './HomeStackScreen';
 
-const {Navigator, Screen, Group} = createNativeStackNavigator();
-// const {Navigator, Screen, Group} = createBottomTabNavigator();
-
-// const {Navigator, Screen, Group} = createMyNavigator();
+// const {Navigator, Screen, Group} = createNativeStackNavigator();
+const {Navigator, Screen, Group} = createBottomTabNavigator();
 
 export default function RootRouter() {
   const user = useSelector(({user}) => user);
@@ -32,33 +28,34 @@ export default function RootRouter() {
       {isLogin ? (
         <Group>
           <Screen
-            name="home1"
+            name="home"
             // component={HomeScreen}
-            component={HomeRouterScreen}
-            options={{headerShown: false, title: '首页'}}
+            component={HomeStackScreen}
+            options={{headerShown: false}}
           />
           <Screen
-            name="movie"
-            // component={HomeScreen}
-            component={MovieScreen}
-            options={{title: '电影'}}
+            name="user"
+            component={UserScreen}
+            options={{title: '用户中心'}}
           />
           <Screen
-            name="cinema"
-            // component={HomeScreen}
-            component={CinemaScreen}
-            options={{title: '影院'}}
-          />
-          <Screen
-            name="vip"
-            // component={HomeScreen}
-            component={VIPScreen}
-            options={{title: '会员中心'}}
+            name="setting"
+            component={SettingScreen}
+            options={{title: '设置'}}
           />
         </Group>
       ) : (
         <Group>
-          <Screen name="login" component={LoginScreen} />
+          <Screen
+            name="home"
+            component={HomeScreen}
+            options={{title: '首页'}}
+          />
+          <Screen
+            name="login"
+            component={LoginScreen}
+            options={{title: '登录'}}
+          />
         </Group>
       )}
     </Navigator>

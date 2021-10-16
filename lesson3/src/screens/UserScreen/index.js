@@ -5,7 +5,6 @@ import {Link} from '@react-navigation/native';
 import {useRoute} from '@react-navigation/native';
 import {Button} from 'react-native-elements';
 import {useDispatch, useSelector} from 'react-redux';
-import {login, logout} from '../../action/user';
 
 // export default function UserScreen({navigation, route}) {
 export default function UserScreen({navigation}) {
@@ -17,23 +16,30 @@ export default function UserScreen({navigation}) {
   return (
     <View>
       <Section>UserScreen</Section>
-      <Link to={{screen: 'vip'}}>会员</Link>
+      {/* <Section>用户名: {route.params.username}</Section> */}
+      <Link to={{screen: 'setting'}}>go setting</Link>
+      <Button
+        title="go setting"
+        buttonStyle={{marginVertical: 20}}
+        onPress={() => navigation.navigate('setting')}
+      />
+      <Button
+        title="修改用户名"
+        buttonStyle={{marginVertical: 20}}
+        onPress={() => navigation.setParams({username: '小白'})}
+      />
       {isLogin ? (
         <Button
           title={userInfo.name + 'logout'}
           buttonStyle={{marginVertical: 20}}
-          onPress={() => {
-            dispatch(logout());
-            // dispatch({type: 'LOGOUT_SUCCESS'});
-          }}
+          onPress={() => dispatch({type: 'LOGOUT_SUCCESS'})}
         />
       ) : (
         <Button
           title="login"
           buttonStyle={{marginVertical: 20}}
-          onPress={
-            () => dispatch(login({name: '小米'}))
-            // dispatch({type: 'LOGIN_SUCCESS', payload: {name: '小米'}})
+          onPress={() =>
+            dispatch({type: 'LOGIN_SUCCESS', payload: {name: '小米'}})
           }
         />
       )}
