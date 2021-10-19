@@ -7,9 +7,9 @@ export default function WebScreen({route}) {
   return (
     <WebView
       style={{margin: 20, padding: 20}}
-      //source={{uri: route.params.uri || 'https://www.kaikeba.com/'}}
+      source={{uri: 'https://www.kaikeba.com/'}}
       originWhitelist={['*']}
-      source={{html: '<h1>hello  world！</h1>'}}
+      // source={{html: '<h1>hello  world！</h1>'}}
     />
   );
 }

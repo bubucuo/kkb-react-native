@@ -6,6 +6,7 @@ import MovieScreen from '@/screens/MovieScreen';
 import UserScreen from '@/screens/UserScreen';
 import SettingScreen from '@/screens/SettingScreen';
 import WebScreen from '../screens/WebScreen';
+import MapScreen from '../screens/MapScreen';
 
 // const HomeStack = createNativeStackNavigator();
 
@@ -19,6 +20,12 @@ export default function HomeRouterScreen() {
         name="user"
         component={UserScreen}
         options={{title: '用户中心'}}
+      />
+
+      <Screen
+        name="mapScreen"
+        component={MapScreen}
+        options={{title: '附近'}}
       />
 
       <Screen

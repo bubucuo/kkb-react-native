@@ -1,0 +1,43 @@
+diff --git a/node_modules/react-native-amap3d/lib/ios/maps/AMapPolyline.m b/node_modules/react-native-amap3d/lib/ios/maps/AMapPolyline.m
+index de2d8bc..93df678 100644
+--- a/node_modules/react-native-amap3d/lib/ios/maps/AMapPolyline.m
++++ b/node_modules/react-native-amap3d/lib/ios/maps/AMapPolyline.m
+@@ -74,7 +74,7 @@ - (void)setColors:(NSArray *)colors {
+ 
+ - (void)setDashed:(BOOL)dashed {
+     _dashed = dashed;
+-    _renderer.lineDash = dashed;
++    // _renderer.lineDash = dashed;
+ }
+ 
+ - (void)setGradient:(BOOL)gradient {
+@@ -99,7 +99,7 @@ - (MAOverlayRenderer *)renderer {
+         _renderer.lineWidth = _width;
+         _renderer.strokeColor = _color;
+         _renderer.strokeColors = _colors;
+-        _renderer.lineDash = _dashed;
++        // _renderer.lineDash = _dashed;
+         _renderer.gradient = _gradient;
+     }
+     return _renderer;
+diff --git a/node_modules/react-native-amap3d/lib/ios/maps/AMapView.m b/node_modules/react-native-amap3d/lib/ios/maps/AMapView.m
+index 66e4108..36ca967 100644
+--- a/node_modules/react-native-amap3d/lib/ios/maps/AMapView.m
++++ b/node_modules/react-native-amap3d/lib/ios/maps/AMapView.m
+@@ -66,11 +66,11 @@ - (void)setLocationStyle:(LocationStyle *)locationStyle {
+     _locationStyle.strokeColor = locationStyle.strokeColor;
+     _locationStyle.lineWidth = locationStyle.strokeWidth;
+     _locationStyle.image = locationStyle.image;
+-    _locationStyle.locationDotBgColor = locationStyle.locationDotBgColor;
+-    _locationStyle.locationDotFillColor = locationStyle.locationDotFillColor;
+-    _locationStyle.enablePulseAnnimation = locationStyle.enablePulseAnnimation;
+-    _locationStyle.showsHeadingIndicator = locationStyle.showsHeadingIndicator;
+-    _locationStyle.showsAccuracyRing = locationStyle.showsAccuracyRing;
++    // _locationStyle.locationDotBgColor = locationStyle.locationDotBgColor;
++    // _locationStyle.locationDotFillColor = locationStyle.locationDotFillColor;
++    // _locationStyle.enablePulseAnnimation = locationStyle.enablePulseAnnimation;
++    // _locationStyle.showsHeadingIndicator = locationStyle.showsHeadingIndicator;
++    // _locationStyle.showsAccuracyRing = locationStyle.showsAccuracyRing;
+ 
+     [self updateUserLocationRepresentation:_locationStyle];
+ }

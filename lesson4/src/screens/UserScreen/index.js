@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text} from 'react-native';
 import Section from '@/components/Section';
 import {Link} from '@react-navigation/native';
 import {useRoute} from '@react-navigation/native';
-import {Button} from 'react-native-elements';
+import {Button, ButtonGroup} from 'react-native-elements';
 import {useDispatch, useSelector} from 'react-redux';
 import {logout} from '../../action/user';
 
@@ -13,7 +13,21 @@ export default function UserScreen({navigation}) {
   const dispatch = useDispatch();
   const {isLogin, userInfo} = user;
 
+  console.log('UserScreen isLogin', isLogin); //sy-log
   const route = useRoute();
+
+  const [random, setrandom] = useState({name: {}});
+  const getUser = () => {
+    // debugger;
+    fetch('https://randomuser.me/api')
+      .then(x => x.json())
+      .then(x => setrandom(x.results[0]));
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
   return (
     <View>
       <Section>UserScreen</Section>
@@ -42,6 +56,12 @@ export default function UserScreen({navigation}) {
           }
         />
       )}
+
+      <View style={{margin: 20}}>
+        <Button title="click" onPress={() => getUser()} disabled={false} />
+        <Text>{random.name.first}</Text>
+        {/* <Text>{JSON.stringify(random)}</Text> */}
+      </View>
     </View>
   );
 }
