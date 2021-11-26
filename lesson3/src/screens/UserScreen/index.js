@@ -16,18 +16,7 @@ export default function UserScreen({navigation}) {
   return (
     <View>
       <Section>UserScreen</Section>
-      {/* <Section>用户名: {route.params.username}</Section> */}
-      <Link to={{screen: 'setting'}}>go setting</Link>
-      <Button
-        title="go setting"
-        buttonStyle={{marginVertical: 20}}
-        onPress={() => navigation.navigate('setting')}
-      />
-      <Button
-        title="修改用户名"
-        buttonStyle={{marginVertical: 20}}
-        onPress={() => navigation.setParams({username: '小白'})}
-      />
+
       {isLogin ? (
         <Button
           title={userInfo.name + 'logout'}
