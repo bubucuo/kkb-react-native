@@ -8,7 +8,6 @@ export default function HomeScreen({navigation}) {
   return (
     <View>
       <Section>HomeScreen</Section>
-
       <Link to={{screen: 'movie'}}>go movie</Link>
     </View>
   );
