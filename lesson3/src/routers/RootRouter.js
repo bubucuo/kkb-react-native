@@ -8,10 +8,15 @@ import UserScreen from '@/screens/UserScreen';
 import SettingScreen from '@/screens/SettingScreen';
 import {useSelector} from 'react-redux';
 import LoginScreen from '@/screens/LoginScreen';
-import HomeStackScreen from './HomeStackScreen';
+import HomeRouterScreen from './HomeRouterScreen';
+import createMyTabNavigator from '../components/createMyTabNavigator';
 
-// const {Navigator, Screen, Group} = createNativeStackNavigator();
-const {Navigator, Screen, Group} = createBottomTabNavigator();
+import MovieScreen from '@/screens/MovieScreen';
+import CinemaScreen from '@/screens/CinemaScreen';
+
+const {Navigator, Screen, Group} = createNativeStackNavigator();
+// const {Navigator, Screen, Group} = createBottomTabNavigator();
+// const {Navigator, Screen, Group} = createMyTabNavigator();
 
 export default function RootRouter() {
   const user = useSelector(({user}) => user);
@@ -30,27 +35,14 @@ export default function RootRouter() {
           <Screen
             name="home"
             // component={HomeScreen}
-            component={HomeStackScreen}
+            component={HomeRouterScreen}
             options={{headerShown: false}}
           />
-          <Screen
-            name="user"
-            component={UserScreen}
-            options={{title: '用户中心'}}
-          />
-          <Screen
-            name="setting"
-            component={SettingScreen}
-            options={{title: '设置'}}
-          />
+          <Screen name="movie" component={MovieScreen} />
+          <Screen name="cinema" component={CinemaScreen} />
         </Group>
       ) : (
         <Group>
-          <Screen
-            name="home"
-            component={HomeScreen}
-            options={{title: '首页'}}
-          />
           <Screen
             name="login"
             component={LoginScreen}
