@@ -3,7 +3,7 @@
 // 做监听 take takeEvery
 
 import {call, put, takeEvery, take, fork} from 'redux-saga/effects';
-import LoginService from '../service/login';
+import LoginService from '@/service/login';
 import {LOGIN_FAILURE, LOGIN_SAGA, LOGIN_SUCCESS, REQUEST} from '@/store/const';
 
 // 做异步
@@ -18,11 +18,8 @@ function* loginHandle(action) {
   }
 }
 
-export function* loginSaga() {
+function* loginSaga() {
   yield takeEvery(LOGIN_SAGA, loginHandle);
-  //   while (true) {
-  //     const action = yield take(LOGIN_SAGA);
-  //     yield fork(loginHandle, action);
-  //     console.log('action', action); //sy-log
-  //   }
 }
+
+export default loginSaga;

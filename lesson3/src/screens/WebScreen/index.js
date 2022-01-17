@@ -3,18 +3,13 @@ import {View, Text} from 'react-native';
 import Section from '@/components/Section';
 import WebView from 'react-native-webview';
 
-export default function WebScreen(route) {
-  const {uri = 'https://www.kaikeba.com'} = route.params || {};
-
+export default function WebScreen({route}) {
   return (
     <WebView
-      source={{uri}}
-      //source={{html: '<h1>Hello world</h1>'}}
+      style={{margin: 20, padding: 20}}
+      source={{uri: route.params.uri || 'https://www.kaikeba.com/'}}
+      originWhitelist={['*']}
+      //source={{html: '<h1>出错啦！</h1>'}}
     />
-  );
-  return (
-    <View>
-      <Section>WebScreen</Section>
-    </View>
   );
 }

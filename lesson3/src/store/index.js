@@ -1,8 +1,8 @@
+import createSagaMiddleware from '@redux-saga/core';
 import {applyMiddleware, combineReducers, createStore} from 'redux';
-import {loginReducer} from './loginReducer';
-import createSagaMiddleware from 'redux-saga';
 import thunk from 'redux-thunk';
-import {loginSaga} from '@/action/loginSaga';
+import loginSaga from '../action/loginSaga';
+import {loginReducer} from './loginReducer';
 
 const sagaMiddleware = createSagaMiddleware();
 

@@ -9,13 +9,14 @@ import SettingScreen from '@/screens/SettingScreen';
 import {useSelector} from 'react-redux';
 import LoginScreen from '@/screens/LoginScreen';
 import HomeRouterScreen from './HomeRouterScreen';
-import createMyTabNavigator from '../components/createMyTabNavigator';
-
+// import createMyTabNavigator from '../components/createMyTabNavigator';
 import MovieScreen from '@/screens/MovieScreen';
 import CinemaScreen from '@/screens/CinemaScreen';
+import VIPScreen from '@/screens/VIPScreen';
 
 const {Navigator, Screen, Group} = createNativeStackNavigator();
 // const {Navigator, Screen, Group} = createBottomTabNavigator();
+
 // const {Navigator, Screen, Group} = createMyTabNavigator();
 
 export default function RootRouter() {
@@ -33,13 +34,25 @@ export default function RootRouter() {
       {isLogin ? (
         <Group>
           <Screen
-            name="home"
-            // component={HomeScreen}
+            name="home0"
             component={HomeRouterScreen}
             options={{headerShown: false}}
           />
-          <Screen name="movie" component={MovieScreen} />
-          <Screen name="cinema" component={CinemaScreen} />
+          <Screen
+            name="movie"
+            component={MovieScreen}
+            options={{title: '电影'}}
+          />
+          <Screen
+            name="cinema"
+            component={CinemaScreen}
+            options={{title: '影院'}}
+          />
+          <Screen
+            name="vip"
+            component={VIPScreen}
+            options={{title: '大会员'}}
+          />
         </Group>
       ) : (
         <Group>
