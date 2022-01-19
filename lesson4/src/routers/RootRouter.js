@@ -9,7 +9,7 @@ import SettingScreen from '@/screens/SettingScreen';
 import {useSelector} from 'react-redux';
 import LoginScreen from '@/screens/LoginScreen';
 import HomeRouterScreen from './HomeRouterScreen';
-import createMyTabNavigator from '../components/createMyTabNavigator';
+// import createMyTabNavigator from '../components/createMyTabNavigator';
 import MovieScreen from '@/screens/MovieScreen';
 import CinemaScreen from '@/screens/CinemaScreen';
 import VIPScreen from '@/screens/VIPScreen';
