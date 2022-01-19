@@ -1,0 +1,91 @@
+diff --git a/node_modules/react-native-amap3d/lib/ios/MapView/CircleManager.swift b/node_modules/react-native-amap3d/lib/ios/MapView/CircleManager.swift
+index 2d4214f..bf90002 100644
+--- a/node_modules/react-native-amap3d/lib/ios/MapView/CircleManager.swift
++++ b/node_modules/react-native-amap3d/lib/ios/MapView/CircleManager.swift
+@@ -9,7 +9,7 @@ class Circle: UIView, Overlay {
+   var renderer: MACircleRenderer?
+ 
+   @objc var radius = 0.0 { didSet { overlay.radius = radius } }
+-  @objc var strokeWidth = 1.0 { didSet { renderer?.lineWidth = strokeWidth } }
++  // @objc var strokeWidth = 1.0 { didSet { renderer?.lineWidth = strokeWidth } }
+   @objc var strokeColor = UIColor.black { didSet { renderer?.strokeColor = strokeColor } }
+   @objc var fillColor = UIColor.white { didSet { renderer?.fillColor = fillColor } }
+ 
+@@ -23,7 +23,7 @@ class Circle: UIView, Overlay {
+       renderer = MACircleRenderer(circle: overlay)
+       renderer?.fillColor = fillColor
+       renderer?.strokeColor = strokeColor
+-      renderer?.lineWidth = strokeWidth
++      // renderer?.lineWidth = strokeWidth
+     }
+     return renderer!
+   }
+diff --git a/node_modules/react-native-amap3d/lib/ios/MapView/HeatMapManager.m b/node_modules/react-native-amap3d/lib/ios/MapView/HeatMapManager.m
+index cd7dc0d..e64847e 100644
+--- a/node_modules/react-native-amap3d/lib/ios/MapView/HeatMapManager.m
++++ b/node_modules/react-native-amap3d/lib/ios/MapView/HeatMapManager.m
+@@ -4,6 +4,6 @@ @interface RCT_EXTERN_MODULE(AMapHeatMapManager, RCTViewManager)
+ 
+ RCT_EXPORT_VIEW_PROPERTY(data, NSArray)
+ RCT_EXPORT_VIEW_PROPERTY(radius, int)
+-RCT_EXPORT_VIEW_PROPERTY(opacity, double)
++// RCT_EXPORT_VIEW_PROPERTY(opacity, double)
+ 
+ @end
+diff --git a/node_modules/react-native-amap3d/lib/ios/MapView/HeatMapManager.swift b/node_modules/react-native-amap3d/lib/ios/MapView/HeatMapManager.swift
+index 49ddb6d..9cc87bf 100644
+--- a/node_modules/react-native-amap3d/lib/ios/MapView/HeatMapManager.swift
++++ b/node_modules/react-native-amap3d/lib/ios/MapView/HeatMapManager.swift
+@@ -17,7 +17,7 @@ class HeatMap: UIView, Overlay {
+   }
+ 
+   @objc func setRadius(_ radius: Int) { overlay.radius = radius }
+-  @objc func setOpacity(_ opacity: Double) { overlay.opacity = opacity }
++  // @objc func setOpacity(_ opacity: Double) { overlay.opacity = opacity }
+   @objc func setData(_ data: NSArray) {
+     overlay.data = data.map { it -> MAHeatMapNode in
+       let item = MAHeatMapNode()
+diff --git a/node_modules/react-native-amap3d/lib/ios/MapView/PolygonManager.swift b/node_modules/react-native-amap3d/lib/ios/MapView/PolygonManager.swift
+index 4d87402..320a0ba 100644
+--- a/node_modules/react-native-amap3d/lib/ios/MapView/PolygonManager.swift
++++ b/node_modules/react-native-amap3d/lib/ios/MapView/PolygonManager.swift
+@@ -8,7 +8,7 @@ class Polygon: UIView, Overlay {
+   var overlay = MAPolygon()
+   var renderer: MAPolygonRenderer?
+ 
+-  @objc var strokeWidth = 1.0 { didSet { renderer?.lineWidth = strokeWidth } }
++  // @objc var strokeWidth = 1.0 { didSet { renderer?.lineWidth = strokeWidth } }
+   @objc var strokeColor = UIColor.black { didSet { renderer?.strokeColor = strokeColor } }
+   @objc var fillColor = UIColor.white { didSet { renderer?.fillColor = fillColor } }
+ 
+@@ -23,7 +23,7 @@ class Polygon: UIView, Overlay {
+       renderer = MAPolygonRenderer(polygon: overlay)
+       renderer?.fillColor = fillColor
+       renderer?.strokeColor = strokeColor
+-      renderer?.lineWidth = strokeWidth
++      // renderer?.lineWidth = strokeWidth
+     }
+     return renderer!
+   }
+diff --git a/node_modules/react-native-amap3d/lib/ios/MapView/PolylineManager.swift b/node_modules/react-native-amap3d/lib/ios/MapView/PolylineManager.swift
+index 2788ed9..d69f89f 100644
+--- a/node_modules/react-native-amap3d/lib/ios/MapView/PolylineManager.swift
++++ b/node_modules/react-native-amap3d/lib/ios/MapView/PolylineManager.swift
+@@ -8,7 +8,7 @@ class Polyline: UIView, Overlay {
+   var overlay = MAMultiPolyline()
+   var renderer: MAMultiColoredPolylineRenderer?
+ 
+-  @objc var width = 1.0 { didSet { renderer?.lineWidth = width } }
++  // @objc var width = 1.0 { didSet { renderer?.lineWidth = width } }
+   @objc var color = UIColor.black { didSet { renderer?.strokeColor = color } }
+   @objc var gradient = false { didSet { renderer?.isGradient = gradient } }
+   @objc var dotted = false { didSet { setDotted() } }
+@@ -31,7 +31,7 @@ class Polyline: UIView, Overlay {
+     if renderer == nil {
+       renderer = MAMultiColoredPolylineRenderer(multiPolyline: overlay)
+       renderer?.strokeColor = color
+-      renderer?.lineWidth = width
++      // renderer?.lineWidth = width
+       renderer?.isGradient = gradient
+       renderer?.strokeColors = colors
+       setDotted()

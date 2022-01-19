@@ -7,6 +7,7 @@ import {Provider} from 'react-redux';
 import store from '@/store/index';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
+// satrt 高德地图
 import {AMapSdk} from 'react-native-amap3d';
 
 AMapSdk.setApiKey(
@@ -15,6 +16,8 @@ AMapSdk.setApiKey(
     ios: '2e301afe760e3c98d9f0bd894d5ea4c5',
   }),
 );
+
+// end 高德地图
 
 export default function App() {
   return (

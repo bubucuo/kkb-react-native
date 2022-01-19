@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text} from 'react-native';
 import Section from '@/components/Section';
 import {Link} from '@react-navigation/native';
@@ -14,6 +14,18 @@ export default function UserScreen({navigation}) {
   const {isLogin, userInfo} = user;
 
   const route = useRoute();
+
+  const [random, setrandom] = useState({name: {}});
+
+  const getUser = () =>
+    fetch('https://randomuser.me/api')
+      .then(x => x.json())
+      .then(x => {
+        // debugger;
+        setrandom(x.results[0]);
+      });
+
+  console.log('---render'); //sy-log
   return (
     <View>
       <Section>UserScreen</Section>
@@ -42,6 +54,13 @@ export default function UserScreen({navigation}) {
           }
         />
       )}
+
+      <Text>{random.name?.first}</Text>
+      <Button
+        title="refresh"
+        buttonStyle={{marginVertical: 20}}
+        onPress={() => getUser()}
+      />
     </View>
   );
 }

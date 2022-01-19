@@ -7,6 +7,7 @@ import MovieScreen from '@/screens/MovieScreen';
 import UserScreen from '@/screens/UserScreen';
 import SettingScreen from '@/screens/SettingScreen';
 import WebScreen from '../screens/WebScreen';
+import MapScreen from '../screens/MapScreen';
 
 // const {Navigator, Screen, Group} = createNativeStackNavigator();
 
@@ -36,6 +37,8 @@ export default function HomeRouterScreen() {
         options={{title: '学习'}}
         initialParams={{uri: 'https://m.vip.com/index.html'}}
       />
+
+      <Screen name="map" component={MapScreen} options={{title: '附近'}} />
     </Navigator>
   );
 }
